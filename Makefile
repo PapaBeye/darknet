@@ -166,7 +166,7 @@ ifeq ($(LIBSO), 1)
 CFLAGS+= -fPIC
 
 $(LIBNAMESO): $(OBJDIR) $(OBJS) include/yolo_v2_class.hpp src/yolo_v2_class.cpp 
-	$(CPP) -shared -std=c++11 -fvisibility=hidden -DLIB_EXPORTS $(COMMON) $(CFLAGS) $(OBJS) darknet_detector.o darknet_wrapper.o src/yolo_v2_class.cpp -o $@ $(LDFLAGS)
+	$(CPP) -shared -std=c++11 -fvisibility=hidden -DLIB_EXPORTS $(COMMON) $(CFLAGS) $(OBJS) $(OBJDIR)/darknet_detector.o $(OBJDIR)/darknet_wrapper.o src/yolo_v2_class.cpp -o $@ $(LDFLAGS)
 
 $(APPNAMESO): $(LIBNAMESO) include/yolo_v2_class.hpp src/yolo_console_dll.cpp
 	$(CPP) -std=c++11 $(COMMON) $(CFLAGS) -o $@ src/yolo_console_dll.cpp $(LDFLAGS) -L ./ -l:$(LIBNAMESO)
