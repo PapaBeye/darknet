@@ -5,6 +5,10 @@
 #include "box.h"
 #include "image.h"
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 typedef void (*process_func_ptr)(int num, const char** names, box* boxes, float* probs);
 typedef void (*fetch_func_ptr)(image* img);
 
@@ -15,5 +19,8 @@ void detector_update(process_func_ptr process_func_in, fetch_func_ptr fetch_func
 void detector_main(char* module, char* operation, char* datacfg, char* cfg, char* weights, char* filename, char* prefix, float thresh, int frame_skip, char* gpu_list, int clear, int visualize_in, int multithread_in);
 
 void detector_initialize(int gpu_id);
+#ifdef __cplusplus
+}
+#endif
 
 #endif

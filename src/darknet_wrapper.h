@@ -1,9 +1,8 @@
 #ifndef DARKNET_WRAPPER
 #define DARKNET_WRAPPER
 
-extern "C" {
+
 #include "darknet_detector.h"
-}
 
 #include <vector>
 #include <string>

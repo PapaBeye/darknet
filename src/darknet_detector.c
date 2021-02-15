@@ -7,13 +7,9 @@
 #include "box.h"
 #include "image.h"
 #include "option_list.h"
-#ifdef __cplusplus
-extern "C" {
-#endif
+
 #include "darknet_detector.h"
-#ifdef __cplusplus
-}
-#endif
+
 //#include <sys/time.h>
 // #include <time.h>
 // #include <winsock.h>
