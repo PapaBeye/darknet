@@ -5,12 +5,14 @@ project "darknetWrapper"
 	cppdialect "C++11"
     
     buildcommands {
-        "cd darknet && make -j$(nproc) && cd ..",
+        "make -j$(nproc)",
      }
 
-     cleancommands {
-        "cd darknet && make clean && cd ..",
+    cleancommands {
+        "make clean",
      }
+
+	postbuildcommands { "cp libdarknet.so ./lib" }
 	--staticruntime "on"
 	targetdir ("%{wks.location}/build/install-" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/build/objdir/" ..  outputdir .. "/%{prj.name}")
