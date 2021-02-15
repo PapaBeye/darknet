@@ -1,5 +1,5 @@
-#ifndef DARKNET_CPP
-#define DARKNET_CPP
+#ifndef DARKNET_WRAPPER
+#define DARKNET_WRAPPER
 
 extern "C" {
 #include "darknet_detector.h"
