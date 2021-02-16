@@ -1,16 +1,16 @@
-project "darknetWrapper"
-    location "%{wks.location}/vendor/darknet"
+project "darknet"
+	location "%{wks.location}/vendor/darknet"
 	kind "Makefile"
 	language "C++"
 	cppdialect "C++11"
-    
-    buildcommands {
-        "make -j$(nproc)",
-     }
+	
+	buildcommands {
+		"make -j$(nproc)",
+	 }
 
-    cleancommands {
-        "make clean",
-     }
+	cleancommands {
+		"make clean",
+	 }
 
 	postbuildcommands { "mkdir --parents ./lib/; mv -f libdarknet.so ./lib/" }
 	--staticruntime "on"
@@ -19,22 +19,20 @@ project "darknetWrapper"
 	files
 	{
 		"%{prj.location}/src/**.h",
-        "%{prj.location}/include/**.h",
-        "%{prj.location}/include/**.hpp",
+		"%{prj.location}/include/**.h",
+		"%{prj.location}/include/**.hpp",
 		"%{prj.location}/src/**.hpp",
 		"%{prj.location}/src/**.cpp",
 		"%{prj.location}/src/**.c",
-        "%{prj.location}/Makefile",
-        
+		"%{prj.location}/Makefile",
+		
 	}
 
-    includedirs 
-    { 
-        "%{prj.location}/include",
-        
-    }
-	--filter "system:linux"
-		--systemversion "latest"
+	includedirs 
+	{ 
+		"%{prj.location}/include",
+		
+	}
 	filter "configurations:Debug"
 		defines "S_DEBUG"
 		runtime "Debug"
