@@ -12,7 +12,7 @@ project "darknet"
 		"make clean",
 	 }
 
-	postbuildcommands { "mkdir --parents ./lib/; mv -f libdarknet.so ./lib/" }
+	postbuildcommands { "cd %{prj.location} mkdir --parents ./lib/; cp -f libdarknet.so ./lib/" }
 	--staticruntime "on"
 	targetdir ("%{wks.location}/build/install-" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/build/objdir/" ..  outputdir .. "/%{prj.name}")
