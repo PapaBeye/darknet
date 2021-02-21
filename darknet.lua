@@ -1,4 +1,4 @@
-project "darknet"
+project "darknetMake"
 	location "%{wks.location}/vendor/darknet"
 	kind "Makefile"
 	language "C++"
@@ -12,7 +12,7 @@ project "darknet"
 		"make clean",
 	 }
 
-	postbuildcommands { "cd %{prj.location} mkdir --parents ./lib/; cp -f libdarknet.so ./lib/" }
+	postbuildcommands { "cd %{prj.location} && mkdir --parents ./lib/ && cp -f ./libdarknet.so ./lib/" }
 	--staticruntime "on"
 	targetdir ("%{wks.location}/build/install-" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/build/objdir/" ..  outputdir .. "/%{prj.name}")
