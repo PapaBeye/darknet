@@ -55,3 +55,8 @@ uselib
 uselib_track
 darknet
 vcpkg/
+
+
+
+darknetMake.project
+darknetMake.sh
