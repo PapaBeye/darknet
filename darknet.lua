@@ -5,8 +5,9 @@ project "darknetMake"
 	cppdialect "C++11"
 	
 	buildcommands {
-		"make -j$(nproc)",
+		"make all -f darknet.mk -j6",
 	 }
+	
 
 	cleancommands {
 		"make clean",

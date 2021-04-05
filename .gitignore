@@ -60,3 +60,4 @@ vcpkg/
 
 darknetMake.project
 darknetMake.sh
+Makefile
